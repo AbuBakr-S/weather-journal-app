@@ -25,16 +25,6 @@ postData('/', {temperature: 24, date: 300520, userResponse: 'e97al'});
 postData('/', {temperature: 36, date: 300520, userResponse: 'n167ux'});
 
 
-
-
-
-
-
-
-
-
-
-
 // Build dynamic URL query by joining variables
 var baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
 var apiKey = '&appid=6d0e16cb765e5e669c1e507ac7107a09';
