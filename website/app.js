@@ -52,7 +52,7 @@ const postData = async ( url = '', data = {})=>{
 const performAction = (e) => {
     // User response: Post code
     const zip =  document.getElementById('zip').value;      // Will fail if empty
-    getWeather(baseURL, zip, countryCode, apiKey);    
+    getWeather(baseURL, zip, countryCode, key);    
 };
 
 // Add event listener
