@@ -11,9 +11,9 @@ api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=6d0e16cb765e5e669c1e50
 // TODO: Remove countryCode var after testing
 
 // Setup async GET request
-const getWeather = async (baseURL, zip, countryCode, apiKey)=>{
+const getWeather = async (baseURL, zip, apiKey)=>{
 
-    const res = await fetch(baseURL+zip+countryCode+apiKey);
+    const res = await fetch(baseURL+zip+apiKey);
         try {
         const data = await res.json();
         console.log(data);
@@ -52,7 +52,7 @@ const postData = async ( url = '', data = {})=>{
 const performAction = (e) => {
     // User response: Post code
     const zip =  document.getElementById('zip').value;      // Will fail if empty
-    getWeather(baseURL, zip, countryCode, apiKey);    
+    getWeather(baseURL, zip, apiKey);    
 };
 
 // Add event listener
