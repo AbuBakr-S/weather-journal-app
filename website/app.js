@@ -1,20 +1,57 @@
+// Setup POST request
+const postData = async ( url = '', data = {})=>{
+    console.log(data);
+      const response = await fetch(url, {
+      method: 'POST', 
+      credentials: 'same-origin',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+     // Body data type must match "Content-Type" header        
+      body: JSON.stringify(data), 
+    });
+
+      try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+      }catch(error) {
+      console.log("error", error);
+      }
+  }
+
+// POST Data
+postData('/', {temperature: 24, date: 300520, userResponse: 'e97al'});
+postData('/', {temperature: 36, date: 300520, userResponse: 'n167ux'});
+
+
+
+
+
+
+
+
+
+
+
+
 // Build dynamic URL query by joining variables
-let baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
-let apiKey = '&APPID=6d0e16cb765e5e669c1e507ac7107a09';
+var baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
+var apiKey = '&appid=6d0e16cb765e5e669c1e507ac7107a09';
 
 /*
 Example of API call:
 api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=6d0e16cb765e5e669c1e507ac7107a09
 */
 
-// Add event listener
-document.getElementById('generate').addEventListener('click', performAction);
-
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     const zip =  document.getElementById('zip').value;
     getWeather(baseURL, zip, apiKey);    
-}
+};
+
+// Add event listener
+document.getElementById('generate').addEventListener('click', performAction);
 
 const getWeather = async (baseURL, zip, key)=>{
 
@@ -28,7 +65,7 @@ const getWeather = async (baseURL, zip, key)=>{
         // Appropriately handle the error
         }
 
-}
+};
 
 
     

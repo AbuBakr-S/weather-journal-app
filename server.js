@@ -26,26 +26,22 @@ const port = 8000;
 const server = app.listen(port, () => { console.log(`Running on localhost: ${port}`) } );
 
 
-
 // GET route that returns the projectData object
 app.get('/', (req, res) => {
     res.send(projectData);
-  });
-
+});
 
 // POST route that adds incoming data to projectData
 app.post('/', (req, res) => {
-    
-    const addAnimal = (req,res) => {
 
+    () => {
         newEntry = {
-          temperature: req.body.temperature,
-          date: req.body.date,
-          userResponse: req.body.userResponse
+            animal: req.body.animal,
+            facts: req.body.fact,
+            fav: req.body.fav
         }
       
-        projectData.push(newEntry)
-        console.log(projectData)
+        projectData.push(newEntry);
+        console.log(data);
     }
-
 });
