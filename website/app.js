@@ -1,9 +1,6 @@
 // Build dynamic URL query by joining variables
-let baseURL = 'api.openweathermap.org/data/2.5/weather?q=';
+let baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
 let apiKey = '&appid=6d0e16cb765e5e669c1e507ac7107a09';
-
-// User response: Post code
-const zip =  document.getElementById('zip').value;
 
 /*
 Example of API call:
@@ -50,6 +47,8 @@ const postData = async ( url = '', data = {})=>{
 
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
+    // User response: Post code
+    const zip =  document.getElementById('zip').value;      // Will fail if empty
     getWeather(baseURL, zip, apiKey);    
 };
 
