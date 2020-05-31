@@ -1,6 +1,5 @@
 // Build dynamic URL query by joining variables
-let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-let countryCode = ',gb';
+let baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
 let apiKey = '&appid=6d0e16cb765e5e669c1e507ac7107a09';
 
 /*
@@ -11,9 +10,9 @@ api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=6d0e16cb765e5e669c1e50
 // TODO: Remove countryCode var after testing
 
 // Setup async GET request
-const getWeather = async (baseURL, zip, countryCode, apiKey)=>{
+const getWeather = async (baseURL, city, apiKey)=>{
 
-    const res = await fetch(baseURL+zip+countryCode+apiKey);
+    const res = await fetch(baseURL+city+apiKey);
         try {
         const data = await res.json();
         console.log(data);
@@ -25,6 +24,7 @@ const getWeather = async (baseURL, zip, countryCode, apiKey)=>{
 
 };
 
+/*
 // Setup Async POST request
 const postData = async ( url = '', data = {})=>{
     console.log(data);
@@ -46,18 +46,21 @@ const postData = async ( url = '', data = {})=>{
         console.log("error", error);
     }
 };
+*/
 
 
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     // User response: Post code
-    const zip =  document.getElementById('zip').value;      // Will fail if empty
-    getWeather(baseURL, zip, countryCode, apiKey);    
+    const city =  document.getElementById('city').value;      // Will fail if empty
+    getWeather(baseURL, city, apiKey);    
 };
 
 // Add event listener
 document.getElementById('generate').addEventListener('click', performAction);
 
+/*
 // POST Data
-postData('/', {temperature: 24, date: 300520, userResponse: 'e97al'});
-postData('/', {temperature: 36, date: 300520, userResponse: 'n167ux'});
+postData('/', {temperature: 24, date: 300520, userResponse: 'London'});
+postData('/', {temperature: 36, date: 300520, userResponse: 'Stoke Newington'});
+*/
