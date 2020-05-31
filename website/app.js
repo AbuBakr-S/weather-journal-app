@@ -15,7 +15,6 @@ const getWeather = async (baseURL, city, apiKey) => {
         console.log("error", error);
         // Appropriately handle the error
         }
-
 };
 
 
@@ -23,9 +22,35 @@ const getWeather = async (baseURL, city, apiKey) => {
 const performAction = (e) => {
     // User response: Post code
     const city =  document.getElementById('city').value;      // Will fail if empty
-    getWeather(baseURL, city, apiKey);    
+    getWeather(baseURL, city, apiKey)
+    .then(function(data){
+        postData('/addWeather', {temperature: data.temperature, date: data.date, userResponse: city});
+    });
 };
 
 
 // Add event listener
 document.getElementById('generate').addEventListener('click', performAction);
+
+
+// Setup Async POST request
+const postData = async ( url = '', data = {})=>{
+    //console.log(data);
+    const response = await fetch(url, {
+        method: 'POST', 
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // Body data type must match "Content-Type" header        
+        body: JSON.stringify(data), 
+    });
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    }catch(error){
+        console.log("error", error);
+        // Appropriately handle the error
+    }
+};
