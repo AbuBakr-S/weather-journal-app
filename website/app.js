@@ -2,21 +2,19 @@
 let baseURL = 'https://api.openweathermap.org/data/2.5/weather?q=';
 let apiKey = '&appid=6d0e16cb765e5e669c1e507ac7107a09';
 
-
 // Setup async GET request
 const getWeather = async (baseURL, city, apiKey) => {
 
     const res = await fetch(baseURL+city+apiKey);
         try {
         const data = await res.json();
-        console.log(data);
+        //console.log(`Print: ${data}`);
         return data;
         }  catch(error) {
         console.log("error", error);
         // Appropriately handle the error
         }
 };
-
 
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
@@ -28,14 +26,12 @@ const performAction = (e) => {
     });
 };
 
-
 // Add event listener
 document.getElementById('generate').addEventListener('click', performAction);
 
-
 // Setup Async POST request
 const postData = async ( url = '', data = {})=>{
-    //console.log(data);
+    //console.log(`Display: ${data}`);
     const response = await fetch(url, {
         method: 'POST', 
         credentials: 'same-origin',
@@ -47,7 +43,7 @@ const postData = async ( url = '', data = {})=>{
     });
     try {
         const newData = await response.json();
-        console.log(newData);
+        //console.log(`Print: ${newData}`);
         return newData;
     }catch(error){
         console.log("error", error);
