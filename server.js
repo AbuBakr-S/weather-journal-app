@@ -24,20 +24,24 @@ app.use(express.static('website'));
 const port = 8000;
 app.listen(port, () => { console.log(`Running on localhost: ${port}`) } );
 
+
 // GET route that returns the projectData object
-app.get('/', (req, res) => {
+app.get('/', sendData);
+
+function sendData (req, res) {
     res.send(projectData);
-});
+};
+
 
 // POST route that adds incoming data to projectData
-app.post('/addWeather', getWeather);
+app.post('/', postWeather);
 
-function getWeather (req, res){
-    console.log(req.body);
+function postWeather (req, res){
     data = req.body;
+    console.log(data);
     projectData["temperature"] = data.temperature,
     projectData["date"] = data.date;
-    projectData["userResponse"] = data.city;
+    projectData["userPostCode"] = data.postCode;
     res.send(projectData);
     console.log(projectData);
 }
