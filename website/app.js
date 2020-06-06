@@ -26,7 +26,9 @@ const performAction = (e) => {
 
     // Date
     let d = new Date();
-    let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+    let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();     // getMonth() returns the month (0–11). Add 1 to adjust.
+    console.log(d);
+    console.log(newDate);
 
     getWeather(baseURL, postCode, apiKey)
     .then(function(data){
