@@ -41,7 +41,7 @@ function postWeather (req, res){
     console.log(data);
     projectData["temperature"] = data.temperature,
     projectData["date"] = data.date;
-    projectData["userPostCode"] = data.postCode;
+    projectData["userPostCode"] = data.userPostCode;
     res.send(projectData);
     console.log(projectData);
 }

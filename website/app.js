@@ -20,16 +20,23 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     // User response: Post code
-    var postCode =  document.getElementById('postCode').value;      // Will fail if empty
+    let postCode =  document.getElementById('postCode').value;      // Will fail if empty
+
+    // Date
+    let d = new Date();
+    let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+
     getWeather(baseURL, postCode, apiKey)
     .then(function(data){
         console.log(data);
-        postData('/', {temperature: data.main.temp, date: data.date, userPostCode: postCode});
+        postData('/', {temperature: data.main.temp, date: newDate, userPostCode: postCode});
     });
 };
 
 // Add event listener
 document.getElementById('generate').addEventListener('click', performAction);
+
+
 
 
 // Setup Async POST request
