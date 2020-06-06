@@ -1,6 +1,6 @@
 // Build dynamic URL query by joining variables
 let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
-let apiKey = ',gb&appid=6d0e16cb765e5e669c1e507ac7107a09';
+let apiKey = ',gb&units=metric&appid=6d0e16cb765e5e669c1e507ac7107a09';
 
 // Setup async GET request
 const getWeather = async (baseURL, postCode, apiKey) => {
@@ -20,11 +20,11 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     // User response: Post code
-    const postCode =  document.getElementById('postCode').value;      // Will fail if empty
+    var postCode =  document.getElementById('postCode').value;      // Will fail if empty
     getWeather(baseURL, postCode, apiKey)
     .then(function(data){
-        //console.log(data);
-        postData('/', {temperature: data.temperature, date: data.date, userPostCode: postCode});
+        console.log(data);
+        postData('/', {temperature: data.main.temp, date: data.date, userPostCode: postCode});
     });
 };
 
