@@ -21,6 +21,8 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 const performAction = (e) => {
     // User response: Post code
     let postCode =  document.getElementById('postCode').value;      // Will fail if empty
+    // User response: Feeling
+    let feeling = document.getElementById('feelings').value;
 
     // Date
     let d = new Date();
@@ -29,7 +31,7 @@ const performAction = (e) => {
     getWeather(baseURL, postCode, apiKey)
     .then(function(data){
         console.log(data);
-        postData('/', {temperature: data.main.temp, date: newDate, userPostCode: postCode});
+        postData('/', {temperature: data.main.temp, date: newDate, userResponse: feeling});
     });
 };
 
