@@ -26,7 +26,7 @@ const performAction = (e) => {
 
     // Date
     let d = new Date();
-    let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();     // getMonth() returns the month (0–11). Add 1 to adjust.
+    let newDate = d.getDate() +'.'+ (d.getMonth()+1) +'.'+ d.getFullYear();     // getMonth() returns the month (0–11). Add 1 to adjust.
 
     getWeather(baseURL, postCode, apiKey)
     .then(function(data){
@@ -72,9 +72,9 @@ const updateUI = async () => {
         const allData = await request.json();
         console.log(allData);
 
-        document.getElementById('date').innerHTML = allData.date;
-        document.getElementById('temp').innerHTML = allData.temperature;
-        document.getElementById('content').innerHTML = allData.userResponse;
+        document.getElementById('date').innerHTML = `Date: ${allData.date}`;
+        document.getElementById('temp').innerHTML = `The temperature is: ${allData.temperature} degrees celcius`;
+        document.getElementById('content').innerHTML = `Feelings Log: ${allData.userResponse}`;
 
     } catch(error) {
         console.log("error", error);
