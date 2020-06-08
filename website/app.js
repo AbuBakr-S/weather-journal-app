@@ -33,7 +33,7 @@ const performAction = (e) => {
         //console.log(data);
         postData('/', {temperature: data.main.temp, date: newDate, userResponse: feeling});
     })
-    .then(updateUI());
+    .then(updateUI);
 };
 
 // Add event listener
