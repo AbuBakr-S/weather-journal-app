@@ -20,9 +20,9 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     // User response: Post code
-    let postCode =  document.getElementById('postCode').value;      // Will fail if empty
+    cont postCode =  document.getElementById('postCode').value;      // Will fail if empty
     // User response: Feeling
-    let feeling = document.getElementById('feelings').value;
+    cont feeling = document.getElementById('feelings').value;
 
     // Date
     let d = new Date();
