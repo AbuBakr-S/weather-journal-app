@@ -20,9 +20,9 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 // Anticipate location (zip / postcode) as user response
 const performAction = (e) => {
     // User response: Post code
-    cont postCode =  document.getElementById('postCode').value;      // Will fail if empty
+    const postCode =  document.getElementById('postCode').value;      // Will fail if empty
     // User response: Feeling
-    cont feeling = document.getElementById('feelings').value;
+    const feeling = document.getElementById('feelings').value;
 
     // Date
     let d = new Date();
@@ -32,7 +32,8 @@ const performAction = (e) => {
     .then(function(data){
         //console.log(data);
         postData('/', {temperature: data.main.temp, date: newDate, userResponse: feeling});
-    });
+    })
+    .then(updateUI());
 };
 
 // Add event listener
@@ -60,5 +61,22 @@ const postData = async ( url = '', data = {})=>{
     }catch(error){
         console.log("error", error);
         // Appropriately handle the error
+    }
+};
+
+
+// Update UI
+const updateUI = async () => {
+    const request = await fetch('/all');
+    try {
+        const allData = await request.json();
+        console.log(allData);
+
+        document.getElementById('date').innerHTML = allData[0].date;
+        document.getElementById('temp').innerHTML = allData[0].temperature;
+        document.getElementById('content').innerHTML = allData[0].userResponse;
+
+    } catch(error) {
+        console.log("error", error);
     }
 };

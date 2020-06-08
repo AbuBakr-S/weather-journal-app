@@ -26,7 +26,7 @@ app.listen(port, () => { console.log(`Running on localhost: ${port}`) } );
 
 
 // GET route that returns the projectData object
-app.get('/', sendData);
+app.get('/all', sendData);
 
 function sendData (req, res) {
     res.send(projectData);
