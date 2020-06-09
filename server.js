@@ -37,7 +37,7 @@ function sendData (req, res) {
 app.post('/', postWeather);
 
 function postWeather (req, res){
-    data = req.body;
+    const data = req.body;
     projectData["temperature"] = data.temperature;
     projectData["date"] = data.date;
     projectData["userResponse"] = data.userResponse;
