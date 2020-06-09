@@ -1,6 +1,6 @@
 // Build dynamic URL query by joining variables
 let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';       // Includes zip
-let apiKey = ',gb&units=metric&appid=6d0e16cb765e5e669c1e507ac7107a09';     // Includes gb for country and unit set to metric for temperature in celcuis
+let apiKey = ',gb&units=metric&appid=6d0e16cb765e5e669c1e507ac7107a09';     // Includes gb for country and unit set to metric for temperature in celcius
 
 // Setup async GET request
 const getWeather = async (baseURL, postCode, apiKey) => {
