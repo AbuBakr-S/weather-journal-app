@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 1px;
 }
 
 #app {
@@ -8,7 +9,8 @@ body {
     margin: 0 auto;
     width: 80%;
     position: relative;
-    background-color:#f41e5b;
+    background-color:#F9C102;
+    max-width: 1000px;
 }
 
 .holder {
@@ -29,9 +31,14 @@ label, button {
 }
 
 .myInput {
-    background-color: #f2abbf;
+    min-width: 200px;
+    max-width: 500px;
 }
 
 button {
     margin: 0 auto;
+}
+
+.entry {
+    min-height: 200px;
 }
