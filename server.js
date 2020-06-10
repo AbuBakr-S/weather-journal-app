@@ -10,7 +10,7 @@ const app = express();
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Cors for cross origin allowance
@@ -22,7 +22,7 @@ app.use(express.static('website'));
 
 // Setup server
 const port = 8000;
-app.listen(port, () => { console.log(`Running on localhost: ${port}`) } );
+app.listen(port, () => {console.log(`Running on localhost: ${port}`)});
 
 
 // GET route that returns the projectData object

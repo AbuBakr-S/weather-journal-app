@@ -10,7 +10,7 @@ const getWeather = async (baseURL, postCode, apiKey) => {
     try {
         const data = await res.json();
         return data;
-    } catch(error) {
+    } catch(error){
         console.log("error", error);
         // Appropriately handle the error
     }
@@ -18,7 +18,7 @@ const getWeather = async (baseURL, postCode, apiKey) => {
 
 
 // Anticipate postcode as user response
-const performAction = (e) => {
+const performAction = () => {
     // User response: Post Code in UK Format
     const postCode =  document.getElementById('postCode').value;      
     // User response: Feeling
@@ -41,7 +41,7 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 
 // Setup Async POST request
-const postData = async ( url = '', data = {})=>{
+const postData = async (url = '', data = {})=>{
     const response = await fetch(url, {
         method: 'POST', 
         credentials: 'same-origin',
@@ -69,7 +69,8 @@ const updateUI = async () => {
         document.getElementById('date').innerHTML = `Today's Date: ${allData.date}`;
         document.getElementById('temp').innerHTML = `The temperature is: ${allData.temperature} &#8451;`;
         document.getElementById('content').innerHTML = `Feelings Log: ${allData.userResponse}`;
-    } catch(error) {
+    } catch(error){
         console.log("error", error);
+        // TODO: Display error message to the user if the call fails
     }
 };
