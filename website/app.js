@@ -65,12 +65,13 @@ const postData = async (url = '', data = {})=>{
 const updateUI = async () => {
     const request = await fetch('/all');
     try {
-        const allData = await request.json();
+        const allData = await equest.json();
         document.getElementById('date').innerHTML = `Today's Date: ${allData.date}`;
         document.getElementById('temp').innerHTML = `The temperature is: ${allData.temperature} &#8451;`;
         document.getElementById('content').innerHTML = `Feelings Log: ${allData.userResponse}`;
     } catch(error){
         console.log("error", error);
-        // TODO: Display error message to the user if the call fails
+        // Display error message to the user if the call fails
+        document.getElementById('errorMsg').innerHTML = 'Looks like there was a problem with the API call.';
     }
 };

@@ -48,3 +48,7 @@ button {
 .entry {
     min-height: 200px;
 }
+
+#entryHolder {
+    color: #d0581c;
+}
