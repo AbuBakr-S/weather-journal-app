@@ -65,7 +65,7 @@ const postData = async (url = '', data = {})=>{
 const updateUI = async () => {
     const request = await fetch('/all');
     try {
-        const allData = await equest.json();
+        const allData = await request.json();
         document.getElementById('date').innerHTML = `Today's Date: ${allData.date}`;
         document.getElementById('temp').innerHTML = `The temperature is: ${allData.temperature} &#8451;`;
         document.getElementById('content').innerHTML = `Feelings Log: ${allData.userResponse}`;
