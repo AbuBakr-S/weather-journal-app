@@ -4,9 +4,9 @@
   "description": "## Introduction In this project, I built an asynchronous web app that uses the openweatherapp API and user data to retrieve local weather information and dynamically update the UI. I've decided to adjust the application for UK use. This involved changing the user's zip code to a postcode value as well as changing the units to metric, as here in the UK we use celcius to measure the temperature.",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {},
   "scripts": {
